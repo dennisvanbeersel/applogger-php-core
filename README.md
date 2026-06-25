@@ -1,6 +1,6 @@
 # applogger/sdk-core
 
-Framework-agnostic PHP error-tracking and log aggregation SDK for [AppLogger](https://applogger.eu) — the EU-hosted, privacy-first application monitoring platform. This package is the core that framework adapters (e.g. `dennisvanbeersel/symfony-logger-client`) build on. It speaks PSR-3 (log interface), PSR-18 (HTTP client), and PSR-17 (HTTP factories), and is designed to never throw into the host application under any circumstances.
+Framework-agnostic PHP error-tracking and log aggregation SDK for [AppLogger](https://applogger.eu) — the EU-hosted, privacy-first application monitoring platform. This package is the core that framework adapters (e.g. `applogger/symfony-bundle`) build on. It speaks PSR-3 (log interface), PSR-18 (HTTP client), and PSR-17 (HTTP factories), and is designed to never throw into the host application under any circumstances.
 
 ![PHP ^8.3](https://img.shields.io/badge/PHP-%5E8.3-blue) ![License MIT](https://img.shields.io/badge/License-MIT-green)
 
@@ -43,7 +43,7 @@ composer require applogger/sdk-core
 > "minimum-stability": "dev",
 > "prefer-stable": true
 > ```
-> Framework adapters that already require the bundle (e.g. `dennisvanbeersel/symfony-logger-client`) typically pin a compatible stability themselves.
+> Framework adapters that already require the bundle (e.g. `applogger/symfony-bundle`) typically pin a compatible stability themselves.
 
 ---
 
@@ -126,7 +126,7 @@ $hub->withScope(function (\ApplicationLogger\Sdk\Scope $scope): void {
 });
 ```
 
-The Symfony bundle (`dennisvanbeersel/symfony-logger-client`) constructs a `Hub` via its DI container and never calls the global `init()`; it uses `Hub::setCurrent()` so the global functions still delegate to the same instance.
+The Symfony bundle (`applogger/symfony-bundle`) constructs a `Hub` via its DI container and never calls the global `init()`; it uses `Hub::setCurrent()` so the global functions still delegate to the same instance.
 
 ---
 
@@ -290,5 +290,6 @@ MIT — see [LICENSE](LICENSE).
 ## Links
 
 - Homepage: https://applogger.eu
+- Getting-started guide: https://app.applogger.eu/docs/core-sdk
 - Source / issues: https://github.com/dennisvanbeersel/applogger-php-core
 - Symfony bundle: https://github.com/dennisvanbeersel/symfony-logger-client
