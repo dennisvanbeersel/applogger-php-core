@@ -1,0 +1,16 @@
+# Auto-detect text files
+* text=auto
+
+# Exclude development files from the Composer dist archive
+/.github         export-ignore
+/tests           export-ignore
+/.php-cs-fixer.dist.php export-ignore
+/phpstan.neon.dist export-ignore
+/phpunit.xml.dist export-ignore
+/.gitignore      export-ignore
+/.gitattributes  export-ignore
+
+# Line endings
+*.php  text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
