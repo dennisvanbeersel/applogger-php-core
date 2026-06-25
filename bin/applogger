@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+// Locate the Composer autoloader whether installed standalone or as a dependency.
+$autoloads = [
+    __DIR__.'/../vendor/autoload.php',        // standalone install of this package
+    __DIR__.'/../../../autoload.php',         // installed as a dependency (vendor/applogger/sdk-core/bin)
+    __DIR__.'/../../../../autoload.php',
+];
+$loaded = false;
+foreach ($autoloads as $autoload) {
+    if (is_file($autoload)) {
+        require $autoload;
+        $loaded = true;
+        break;
+    }
+}
+if (!$loaded) {
+    fwrite(STDERR, "applogger: could not locate the Composer autoloader. Run `composer install`.\n");
+    exit(1);
+}
+
+exit(\ApplicationLogger\Sdk\Diagnostic\Cli::main($argv, getenv()));
