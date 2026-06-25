@@ -2,7 +2,7 @@
 
 Framework-agnostic PHP error-tracking and log aggregation SDK for [AppLogger](https://applogger.eu) — the EU-hosted, privacy-first application monitoring platform. This package is the core that framework adapters (e.g. `dennisvanbeersel/symfony-logger-client`) build on. It speaks PSR-3 (log interface), PSR-18 (HTTP client), and PSR-17 (HTTP factories), and is designed to never throw into the host application under any circumstances.
 
-![PHP ^8.2](https://img.shields.io/badge/PHP-%5E8.2-blue) ![License MIT](https://img.shields.io/badge/License-MIT-green)
+![PHP ^8.3](https://img.shields.io/badge/PHP-%5E8.3-blue) ![License MIT](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
@@ -24,7 +24,7 @@ Framework-agnostic PHP error-tracking and log aggregation SDK for [AppLogger](ht
 
 ## Requirements
 
-- PHP **^8.2**
+- PHP **^8.3**
 - A discoverable **PSR-18 HTTP client** (e.g. `symfony/http-client`, `guzzlehttp/guzzle` with `php-http/guzzle7-adapter`).
   - `nyholm/psr7` (PSR-17 request/response factories) ships as a **direct dependency** and is always available.
   - If **no PSR-18 client is discoverable** at runtime, the SDK silently degrades to a `NullTransport` — telemetry is disabled but the host application continues unaffected. Install a PSR-18 client to actually send events.
