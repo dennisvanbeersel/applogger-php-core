@@ -31,6 +31,10 @@ final readonly class Dsn
             return null;
         }
 
+        // 2.1.0 INVARIANT (design spec §6.1): userinfo is rejected so the
+        // publishable key (pk_…) can NEVER ride in the DSN authority. The key
+        // is carried out-of-band (X-Publishable-Key header + ?pk= query param).
+        // DO NOT relax this — guarded by DsnPublishableKeyInvariantTest + DsnTest.
         if (isset($parts['user']) || isset($parts['pass'])) {
             return null;
         }
